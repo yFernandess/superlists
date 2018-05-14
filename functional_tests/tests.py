@@ -33,8 +33,8 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser.get(self.live_server_url)
 
         # A pagina eh atualizada novamente e agora mostra os dois itens em sua lista
-        self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
+        self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
         # Satisfeita ela volta a dormir
 
