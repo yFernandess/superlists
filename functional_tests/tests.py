@@ -31,6 +31,9 @@ class NewVisitorTest(LiveServerTestCase):
         # Edith ouviu falar de uma nova aplicacao online interessante para
         # lista de tarefas. Ela decide verificar sua homepage
         self.browser.get(self.live_server_url)
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Buy peacock feathers')
+        inputbox.send_keys(Keys.ENTER)
 
         # A pagina eh atualizada novamente e agora mostra os dois itens em sua lista
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
@@ -67,7 +70,7 @@ class NewVisitorTest(LiveServerTestCase):
         # eh menos interessante que Edith...
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy milk')
-        inputbox.send_keys(keys.ENTER)
+        inputbox.send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: Buy milk')
 
         # Francis obtem seu proprio URL exclusivo
